@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-Φ — Treasury Intelligence Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#06060f;--bg2:#0a0a1a;--bg3:#0e0e22;
+  --gold:#E6FF00;--gold2:#c8dd00;--gold3:#a0b400;
+  --pink:#E6007E;--teal:#36d6a0;--red:#ef6461;--blue:#1E90FF;
+  --txt:#e8e8f0;--txt2:#9a9ab8;--txt3:#5a5a7a;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--txt);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── NOISE OVERLAY ─── */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opacity:0.025;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─── GRID BACKGROUND ─── */
+.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(rgba(230,255,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230,255,0,0.03) 1px, transparent 1px);
+  background-size:80px 80px;
+}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(6,6,15,0.7);border-bottom:1px solid rgba(230,255,0,0.06);transition:all 0.4s}
+nav.scrolled{padding:12px 48px;background:rgba(6,6,15,0.92)}
+.nav-logo{font-family:var(--serif);font-size:28px;color:var(--gold);letter-spacing:2px;text-decoration:none}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--txt2);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:0.5px;transition:color 0.3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{padding:10px 28px;background:var(--gold);color:var(--bg);font-weight:700;font-size:13px;letter-spacing:1px;border-radius:6px;text-decoration:none;transition:all 0.3s;text-transform:uppercase}
+.nav-cta:hover{background:#fff;transform:translateY(-1px);box-shadow:0 8px 32px rgba(230,255,0,0.2)}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:140px 48px 80px;text-align:center;overflow:hidden}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;
+  background:radial-gradient(circle,rgba(230,255,0,0.06) 0%,rgba(230,0,126,0.02) 40%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;border:1px solid rgba(230,255,0,0.15);background:rgba(230,255,0,0.04);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;
+  animation:fadeUp 0.8s ease both}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:var(--serif);font-size:clamp(48px,7vw,96px);line-height:1.05;color:var(--txt);margin-bottom:24px;
+  animation:fadeUp 0.8s 0.15s ease both}
+h1 span{color:var(--gold);position:relative}
+h1 span::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:3px;background:var(--gold);opacity:0.3;border-radius:2px}
+.hero-sub{font-size:clamp(16px,2vw,22px);color:var(--txt2);max-width:680px;margin:0 auto 48px;line-height:1.7;
+  animation:fadeUp 0.8s 0.3s ease both}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.8s 0.45s ease both}
+.btn-primary{padding:16px 40px;background:var(--gold);color:var(--bg);font-weight:700;font-size:14px;letter-spacing:1px;border-radius:8px;text-decoration:none;transition:all 0.3s;text-transform:uppercase;border:2px solid var(--gold)}
+.btn-primary:hover{background:transparent;color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 40px rgba(230,255,0,0.15)}
+.btn-ghost{padding:16px 40px;background:transparent;color:var(--gold);font-weight:600;font-size:14px;letter-spacing:0.5px;border-radius:8px;text-decoration:none;transition:all 0.3s;border:1px solid rgba(230,255,0,0.35);position:relative;overflow:hidden;
+  animation:ghostPulse 2.5s ease-in-out infinite}
+.btn-ghost::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(230,255,0,0.08),transparent);animation:ghostShimmer 3s ease-in-out infinite}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);animation:none}
+.btn-ghost:hover::before{display:none}
+@keyframes ghostPulse{0%,100%{border-color:rgba(230,255,0,0.15);box-shadow:0 0 0 0 rgba(230,255,0,0)}50%{border-color:rgba(230,255,0,0.5);box-shadow:0 0 20px 2px rgba(230,255,0,0.1)}}
+@keyframes ghostShimmer{0%{left:-100%}100%{left:200%}}
+.hero-stats{display:flex;gap:64px;justify-content:center;margin-top:80px;animation:fadeUp 0.8s 0.6s ease both}
+.stat{text-align:center}
+.stat-num{font-family:var(--mono);font-size:42px;font-weight:600;color:var(--gold);line-height:1}
+.stat-label{font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── SECTION ─── */
+section{position:relative;z-index:1;padding:120px 48px}
+.section-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);margin-bottom:20px;line-height:1.2}
+.section-sub{font-size:17px;color:var(--txt2);max-width:600px;line-height:1.7;margin-bottom:56px}
+.container{max-width:1200px;margin:0 auto}
+
+/* ─── WORKFLOW ─── */
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:start;position:relative;margin-bottom:32px}
+.wf-step{text-align:center;position:relative;padding:0 12px}
+.wf-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;transition:all 0.4s}
+.wf-step:nth-child(1) .wf-icon{background:rgba(30,144,255,0.12);border:1px solid rgba(30,144,255,0.25)}
+.wf-step:nth-child(2) .wf-icon{background:rgba(230,0,126,0.12);border:1px solid rgba(230,0,126,0.25)}
+.wf-step:nth-child(3) .wf-icon{background:rgba(230,0,126,0.12);border:1px solid rgba(230,0,126,0.25)}
+.wf-step:nth-child(4) .wf-icon{background:rgba(230,255,0,0.12);border:1px solid rgba(230,255,0,0.25)}
+.wf-step:nth-child(5) .wf-icon{background:rgba(54,214,160,0.12);border:1px solid rgba(54,214,160,0.25)}
+.wf-step:hover .wf-icon{transform:translateY(-4px) scale(1.08)}
+.wf-name{font-weight:700;font-size:14px;margin-bottom:4px}
+.wf-desc{font-size:12px;color:var(--txt3);line-height:1.5}
+.wf-arrow{position:absolute;right:-12px;top:32px;color:var(--gold);font-size:18px;opacity:0.4}
+.wf-step:last-child .wf-arrow{display:none}
+
+/* ─── FEATURE CARDS ─── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-top:56px}
+.f-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:36px;transition:all 0.4s;position:relative;overflow:hidden}
+.f-card:hover{border-color:rgba(230,255,0,0.15);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.f-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.4s}
+.f-card:hover::before{opacity:1}
+.f-icon{font-size:32px;margin-bottom:16px;display:block}
+.f-title{font-family:var(--serif);font-size:22px;margin-bottom:10px}
+.f-desc{font-size:14px;color:var(--txt2);line-height:1.7}
+.f-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:0.5px;margin-top:14px;text-transform:uppercase}
+.f-tag.live{background:rgba(54,214,160,0.12);color:var(--teal);border:1px solid rgba(54,214,160,0.2)}
+.f-tag.new{background:rgba(230,255,0,0.1);color:var(--gold);border:1px solid rgba(230,255,0,0.2)}
+
+/* ─── SECURITY SECTION ─── */
+.security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sec-item{display:flex;gap:14px;padding:20px;border-radius:12px;background:var(--bg2);border:1px solid rgba(255,255,255,0.03);transition:all 0.3s}
+.sec-item:hover{border-color:rgba(54,214,160,0.2);background:rgba(54,214,160,0.02)}
+.sec-check{width:24px;height:24px;border-radius:50%;background:rgba(54,214,160,0.12);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px}
+.sec-name{font-weight:600;font-size:14px;margin-bottom:3px}
+.sec-desc{font-size:12px;color:var(--txt3);line-height:1.5}
+
+/* ─── ARCHITECTURE ─── */
+.arch-visual{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:48px}
+.arch-col{background:var(--bg2);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;min-width:200px;flex:1;max-width:260px}
+.arch-col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.arch-col-title.blue{color:var(--blue)}
+.arch-col-title.pink{color:var(--pink)}
+.arch-col-title.gold{color:var(--gold)}
+.arch-col-title.green{color:var(--teal)}
+.arch-item{padding:8px 12px;margin-bottom:6px;border-radius:8px;font-size:13px;font-weight:500;transition:all 0.3s;cursor:default}
+.arch-item.blue{background:rgba(30,144,255,0.08);color:var(--blue)}
+.arch-item.pink{background:rgba(230,0,126,0.08);color:var(--pink)}
+.arch-item.gold{background:rgba(230,255,0,0.08);color:var(--gold)}
+.arch-item.green{background:rgba(54,214,160,0.08);color:var(--teal)}
+.arch-item:hover{transform:translateX(4px)}
+.arch-arrow{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;opacity:0.3;padding-top:40px}
+
+/* ─── CTA SECTION ─── */
+.cta-section{text-align:center;padding:120px 48px;position:relative}
+.cta-section::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(230,255,0,0.2),transparent)}
+.cta-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);margin-bottom:20px}
+.cta-sub{font-size:18px;color:var(--txt2);margin-bottom:40px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+/* ─── FOOTER ─── */
+footer{padding:48px;border-top:1px solid rgba(255,255,255,0.04);text-align:center}
+footer .logo{font-family:var(--serif);font-size:24px;color:var(--gold);letter-spacing:2px;margin-bottom:12px}
+footer p{font-size:12px;color:var(--txt3);line-height:1.8}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}.reveal-d4{transition-delay:0.4s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  section{padding:80px 20px}
+  .hero{padding:120px 20px 60px}
+  .hero-stats{gap:32px;flex-wrap:wrap}
+  .workflow{grid-template-columns:1fr;gap:24px}
+  .wf-arrow{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .arch-visual{flex-direction:column}
+  .arch-arrow{transform:rotate(90deg);padding:0}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">K–Φ</a>
+  <div class="nav-links">
+    <a href="#workflow">How It Works</a>
+    <a href="#features">Features</a>
+    <a href="#security">Security</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#demo" class="nav-cta">Request Demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge"><span class="dot"></span> Treasury Intelligence Platform</div>
+  <h1>From GL to <span>Cash Forecast</span><br>in one click</h1>
+  <p class="hero-sub">K-Φ transforms raw general ledger data into complete financial statements, driver-based budgets, and cash flow intelligence — all from a single GL extract.</p>
+  <div class="hero-actions">
+    <a href="#demo" class="btn-primary">Request a Demo</a>
+    <a href="#workflow" class="btn-ghost">See How It Works</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">26</div><div class="stat-label">Budget Drivers</div></div>
+    <div class="stat"><div class="stat-num">B/S · P&L · CF</div><div class="stat-label">Auto-Generated</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Scenarios</div></div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section id="workflow">
+  <div class="container">
+    <div class="section-label reveal">How It Works</div>
+    <div class="section-title reveal">Five steps. Fully automated.</div>
+    <div class="section-sub reveal">Import your GL once — K-Φ builds everything else. No templates, no mapping, no formulas to maintain.</div>
+    <div class="workflow reveal">
+      <div class="wf-step">
+        <div class="wf-icon">⚡</div>
+        <div class="wf-name">Data Ingestion</div>
+        <div class="wf-desc">CSV/TSV import with AI mapping, or direct ERP connector (SAP, Oracle, D365)</div>
+        <span class="wf-arrow">→</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-icon">📊</div>
+        <div class="wf-name">Three Statements</div>
+        <div class="wf-desc">Balance Sheet, P&L, and Cash Flow Statement auto-generated from GL classifications</div>
+        <span class="wf-arrow">→</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-icon">📈</div>
+        <div class="wf-name">KPIs & Analytics</div>
+        <div class="wf-desc">DSO, DPO, CCC, DSCR, margins — computed in real-time with drill-down capability</div>
+        <span class="wf-arrow">→</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-icon">🎯</div>
+        <div class="wf-name">Budget & Forecast</div>
+        <div class="wf-desc">Driver-based planning with trend extrapolation, seasonal decomposition, workflow approval</div>
+        <span class="wf-arrow">→</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-icon">🔗</div>
+        <div class="wf-name">Kyriba Export</div>
+        <div class="wf-desc">Push forecasts and payment terms to Kyriba for reconciliation and cash positioning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label reveal">Capabilities</div>
+    <div class="section-title reveal">Everything treasury needs.<br>Nothing it doesn't.</div>
+    <div class="section-sub reveal">Built by treasury practitioners, not generic software engineers. Every feature solves a real operational pain point.</div>
+    <div class="features-grid">
+      <div class="f-card reveal">
+        <span class="f-icon">📋</span>
+        <div class="f-title">Three-Statement Model</div>
+        <div class="f-desc">Automatic Balance Sheet, Income Statement, and Cash Flow Statement derived from GL entries. Indirect method CFS with full drill-down showing prior B/S → current B/S → delta for every line.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal reveal-d1">
+        <span class="f-icon">🔀</span>
+        <div class="f-title">Multi-Version Analysis</div>
+        <div class="f-desc">Compare up to 24 monthly versions side by side. Version Report with trend charts, variance analysis, and chronological ordering. See how your position evolved over time.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal reveal-d2">
+        <span class="f-icon">🎯</span>
+        <div class="f-title">Driver-Based Budgeting</div>
+        <div class="f-desc">26 drivers across Revenue, COGS, Personnel, OpEx, Working Capital, and Treasury. Seed from actuals with trend extrapolation and seasonal decomposition. Generate full forecasted statements.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal">
+        <span class="f-icon">📊</span>
+        <div class="f-title">Financial KPIs</div>
+        <div class="f-desc">Cash Conversion Cycle, DSO/DPO/DIO, DSCR, current & quick ratios, margin analysis. Interactive drill-down to account-level detail with Sankey flow visualisation.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal reveal-d1">
+        <span class="f-icon">🏢</span>
+        <div class="f-title">Multi-Entity & Multi-Currency</div>
+        <div class="f-desc">Scope by entity, business unit, and period. Consolidation engine with inter-company eliminations. Multi-currency GL with FX gain/loss tracking.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal reveal-d2">
+        <span class="f-icon">🔗</span>
+        <div class="f-title">Kyriba API Integration</div>
+        <div class="f-desc">Native connector to Kyriba treasury management. Push forecasts and payment terms directly. Budget in K-Φ, reconcile in Kyriba — best of both worlds.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal">
+        <span class="f-icon">📥</span>
+        <div class="f-title">Excel Interop</div>
+        <div class="f-desc">Paste from Excel directly into budget tables. Export any page to CSV with one click. Every statement, every KPI, every budget — downloadable instantly.</div>
+        <span class="f-tag new">New</span>
+      </div>
+      <div class="f-card reveal reveal-d1">
+        <span class="f-icon">✅</span>
+        <div class="f-title">Budget Workflow</div>
+        <div class="f-desc">Four-stage approval: Draft → Submitted → Review → Approved. Full audit trail with user attribution and timestamps. Clone scenarios for what-if analysis.</div>
+        <span class="f-tag live">Live</span>
+      </div>
+      <div class="f-card reveal reveal-d2">
+        <span class="f-icon">🤖</span>
+        <div class="f-title">AI-Powered Forecasting</div>
+        <div class="f-desc">Linear regression with seasonal decomposition for trend extrapolation. Smart seeding from historical actuals — no flat-line assumptions.</div>
+        <span class="f-tag new">New</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security">
+  <div class="container">
+    <div class="section-label reveal">Security & Compliance</div>
+    <div class="section-title reveal">Enterprise-grade security.<br>Zero compromise.</div>
+    <div class="section-sub reveal">Financial data demands the highest standards. K-Φ is built with security-first architecture from day one.</div>
+    <div class="security-grid">
+      <div class="sec-item reveal">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Multi-Tenant Isolation</div><div class="sec-desc">Strict tenant segregation with row-level security. No cross-tenant data leakage possible.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d1">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Token-Based Authentication</div><div class="sec-desc">Bearer token auth on every API call. 30-minute inactivity timeout with automatic session expiry.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d2">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Role-Based Access Control</div><div class="sec-desc">Owner, Admin, Editor, Viewer roles with entity and business unit-level data permissions.</div></div>
+      </div>
+      <div class="sec-item reveal">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Encryption in Transit</div><div class="sec-desc">TLS 1.3 on all connections. Content Security Policy headers restricting all resource origins.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d1">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Full Audit Trail</div><div class="sec-desc">Every login, data import, config change, and budget workflow action logged with user attribution.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d2">
+        <div class="sec-check">✓</div>
+        <div><div class="sec-name">Input Sanitisation</div><div class="sec-desc">XSS prevention on all user inputs. Password policy enforcing length, complexity, and strength.</div></div>
+      </div>
+      <div class="sec-item reveal">
+        <div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div>
+        <div><div class="sec-name" style="color:var(--gold)">Roadmap: SOC 2 Type II & ISO 27001</div><div class="sec-desc">Independent audit of security, availability, and confidentiality controls.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d1">
+        <div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div>
+        <div><div class="sec-name" style="color:var(--gold)">Roadmap: MFA & SSO</div><div class="sec-desc">Multi-factor authentication and SAML 2.0 / OpenID Connect for enterprise identity providers.</div></div>
+      </div>
+      <div class="sec-item reveal reveal-d2">
+        <div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div>
+        <div><div class="sec-name" style="color:var(--gold)">Roadmap: GDPR & Data Residency</div><div class="sec-desc">Full EU compliance with right to erasure, breach notification, and EU/US hosting choice.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section id="architecture" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label reveal">Architecture</div>
+    <div class="section-title reveal">GL in, intelligence out.</div>
+    <div class="section-sub reveal">A horizontal workflow from raw data to actionable treasury insight. Four pillars, one integrated platform.</div>
+    <div class="arch-visual reveal">
+      <div class="arch-col">
+        <div class="arch-col-title blue">Data Ingestion</div>
+        <div class="arch-item blue">ERP Connector</div>
+        <div class="arch-item blue">CSV / TSV Import</div>
+        <div class="arch-item blue">AI Field Mapper</div>
+        <div class="arch-item blue">Configuration</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-col">
+        <div class="arch-col-title pink">Reporting</div>
+        <div class="arch-item pink">Balance Sheet</div>
+        <div class="arch-item pink">P&L Statement</div>
+        <div class="arch-item pink">Cash Flow Statement</div>
+        <div class="arch-item pink">Financial KPIs</div>
+        <div class="arch-item pink">GL Explorer</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-col">
+        <div class="arch-col-title gold">Planning</div>
+        <div class="arch-item gold">Driver-Based Budget</div>
+        <div class="arch-item gold">Trend Extrapolation</div>
+        <div class="arch-item gold">Version Report</div>
+        <div class="arch-item gold">Scenario Analysis</div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-col">
+        <div class="arch-col-title green">Export</div>
+        <div class="arch-item green">Kyriba API</div>
+        <div class="arch-item green">Excel Download</div>
+        <div class="arch-item green">Statement Generation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="demo">
+  <div class="container">
+    <div class="section-label reveal">Get Started</div>
+    <div class="cta-title reveal">Ready to transform<br>your treasury?</div>
+    <div class="cta-sub reveal">See K-Φ in action with your own data. No commitment, no credit card, no lengthy onboarding.</div>
+    <div class="hero-actions reveal">
+      <a href="mailto:contact@kphi.io" class="btn-primary">Request a Demo</a>
+      <a href="#" class="btn-ghost" onclick="window.open('https://lfs-engine.onrender.com','_blank');return false;">Try the Live Demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">K–Φ</div>
+  <p>Treasury Intelligence Platform<br>Built for treasurers, by treasury practitioners.<br><br>&copy; 2025 K-Φ. All rights reserved.</p>
+</footer>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// Scroll reveal
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
