@@ -112,6 +112,35 @@ section{position:relative;z-index:1;padding:120px 48px}
 .arch-item:hover{transform:translateX(4px)}
 .arch-arrow{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;opacity:0.3;padding-top:40px}
 
+/* API Section */
+.api-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:32px auto;max-width:800px}
+.api-box{padding:14px 20px;border-radius:10px;text-align:center;min-width:130px}
+.api-box.source{background:rgba(97,175,239,0.06);border:1px solid rgba(97,175,239,0.15)}
+.api-box.center{background:linear-gradient(135deg,rgba(230,255,0,0.08),rgba(230,0,126,0.06));border:2px solid rgba(230,255,0,0.25);padding:24px 32px;border-radius:14px}
+.api-box.dest{background:rgba(230,0,126,0.06);border:1px solid rgba(230,0,126,0.15)}
+.api-arrow{padding:0 14px;font-size:20px;opacity:0.4}
+.api-arrow.in{color:var(--blue)}.api-arrow.out{color:var(--gold)}
+.api-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px}
+.api-table th{text-align:left;padding:8px 10px;color:var(--txt3);font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.api-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.api-table code{font-family:var(--mono);font-size:11px}
+.api-badge{font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
+.api-badge.live{background:rgba(230,255,0,0.1);color:var(--gold)}.api-badge.planned{background:rgba(100,100,140,0.15);color:var(--txt3)}
+.api-method{font-family:var(--mono);font-weight:700;font-size:11px}
+.api-method.get{color:var(--blue)}.api-method.post{color:var(--gold)}.api-method.del{color:var(--red)}
+.api-example{background:var(--bg);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px 24px;margin-top:20px;overflow-x:auto}
+.api-example pre{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--txt2);margin:0;white-space:pre-wrap}
+.api-example .cmt{color:var(--txt3)}.api-example .kw{color:var(--gold)}.api-example .str{color:var(--pink)}.api-example .key{color:var(--blue)}
+.connectors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:24px}
+.connector{padding:16px 12px;border-radius:10px;text-align:center;transition:all 0.3s}
+.connector:hover{transform:translateY(-3px)}
+.connector.live{background:rgba(230,0,126,0.05);border:1px solid rgba(230,0,126,0.15)}
+.connector.planned{background:rgba(40,40,70,0.3);border:1px solid rgba(60,60,100,0.2)}
+.connector .c-icon{font-size:22px;margin-bottom:6px}
+.connector .c-name{font-size:12px;font-weight:700;color:var(--txt)}
+.connector .c-dir{font-size:9px;color:var(--txt3);margin-top:2px}
+.connector .c-status{font-size:8px;font-weight:700;margin-top:6px}
+
 .cta-section{text-align:center;padding:120px 48px;position:relative}
 .cta-section::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(230,255,0,0.2),transparent)}
 .cta-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);margin-bottom:20px}
@@ -131,6 +160,9 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   .hero-stats{gap:32px;flex-wrap:wrap}.workflow{grid-template-columns:1fr;gap:24px}.wf-arrow{display:none}
   .features-grid{grid-template-columns:1fr}.layers-grid{grid-template-columns:repeat(2,1fr)}
   .arch-visual{flex-direction:column}.arch-arrow{transform:rotate(90deg);padding:0}
+  .api-flow{flex-direction:column}.api-arrow{transform:rotate(90deg);padding:8px 0}
+  .api-table{font-size:11px}.api-table td,.api-table th{padding:6px 4px}
+  .connectors-grid{grid-template-columns:repeat(3,1fr)}
 }
 </style>
 </head>
@@ -145,6 +177,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <a href="#platform">Platform</a>
     <a href="#security">Security</a>
     <a href="#architecture">Architecture</a>
+    <a href="#api">API</a>
     <a href="#demo" class="nav-cta">Request Demo</a>
     <a href="https://k-phi.com" target="_blank" class="nav-cta" style="background:var(--gold);color:#0a0a1a;margin-left:6px">▶ Live Demo</a>
   </div>
@@ -249,6 +282,140 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
       <div class="arch-col"><div class="arch-col-title purple">Φ Own</div><div class="arch-item purple">AI Assistant</div><div class="arch-item purple">Push Proposals</div><div class="arch-item purple">Marketplace</div><div class="arch-item purple">Version Manager</div></div>
       <div class="arch-arrow">→</div>
       <div class="arch-col"><div class="arch-col-title green">Φ Export</div><div class="arch-item green">Kyriba API</div><div class="arch-item green">Excel Download</div><div class="arch-item green">Statement PDF</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- API -->
+<section id="api" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label reveal">Open API</div>
+    <div class="section-title reveal">Connect anything.<br>Push actuals. Pull forecasts.</div>
+    <div class="section-sub reveal">K-Φ sits between your ERP and your TMS. Your ERP pushes actuals in, Kyriba pulls forecasts out — all via REST API.</div>
+
+    <!-- Architecture flow -->
+    <div class="api-flow reveal">
+      <div>
+        <div class="api-box source" style="margin-bottom:8px"><span style="color:var(--blue);font-weight:700;font-size:13px">SAP / Oracle</span></div>
+        <div class="api-box source" style="margin-bottom:8px"><span style="color:var(--blue);font-weight:700;font-size:13px">NetSuite / Xero</span></div>
+        <div class="api-box source"><span style="color:var(--blue);font-weight:700;font-size:13px">PSD2 Banks</span></div>
+      </div>
+      <div class="api-arrow in">→</div>
+      <div class="api-box center">
+        <div style="font-family:var(--serif);font-size:28px;font-weight:900;color:var(--gold)">K–Φ</div>
+        <div style="font-size:10px;color:var(--txt3);margin-top:6px">GL → Statements → KPIs<br>Budgets → Forecast</div>
+      </div>
+      <div class="api-arrow out">→</div>
+      <div>
+        <div class="api-box dest" style="margin-bottom:8px"><span style="color:var(--pink);font-weight:700;font-size:13px">Kyriba TMS</span></div>
+        <div class="api-box dest" style="margin-bottom:8px"><span style="color:var(--pink);font-weight:700;font-size:13px">Webhooks</span></div>
+        <div class="api-box dest"><span style="color:var(--pink);font-weight:700;font-size:13px">Slack / Email</span></div>
+      </div>
+    </div>
+
+    <!-- Auth info -->
+    <div class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:40px 0 48px;font-size:13px">
+      <div style="padding:8px 16px;background:rgba(230,255,0,0.04);border:1px solid rgba(230,255,0,0.12);border-radius:8px"><span style="color:var(--gold);font-weight:700">Base URL</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">https://k-phi.com/api/v1</code></div>
+      <div style="padding:8px 16px;background:rgba(230,0,126,0.04);border:1px solid rgba(230,0,126,0.12);border-radius:8px"><span style="color:var(--pink);font-weight:700">Auth</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">Bearer &lt;token&gt;</code></div>
+      <div style="padding:8px 16px;background:rgba(100,100,255,0.04);border:1px solid rgba(100,100,255,0.12);border-radius:8px"><span style="color:var(--blue);font-weight:700">Format</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">JSON</code></div>
+    </div>
+
+    <!-- Outbound API -->
+    <div class="f-card reveal" style="margin-bottom:24px">
+      <div style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px">▲ Outbound — Forecast API</div>
+      <div style="font-size:12px;color:var(--txt3);margin-bottom:16px">External systems pull forecasts, statements, and KPIs from K-Φ</div>
+      <table class="api-table">
+        <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast</code></td><td>Cash flow forecast (weekly/monthly)</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast/kyriba</code></td><td>Forecast as IMP_LF_VDO payload</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast/scenarios</code></td><td>List available scenarios</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/bs</code></td><td>Balance Sheet</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/pl</code></td><td>P&amp;L Statement</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/cf</code></td><td>Cash Flow Statement</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/kpi</code></td><td>Financial KPIs &amp; ratios</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/budget/:id</code></td><td>Budget with driver details</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/webhook/subscribe</code></td><td>Webhook for forecast updates</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+        </tbody>
+      </table>
+
+      <!-- Kyriba example -->
+      <div class="api-example" style="border-color:rgba(230,0,126,0.15)">
+        <div style="font-size:12px;font-weight:700;color:var(--pink);margin-bottom:10px">⚡ Kyriba Integration — Kyriba pulls the forecast, no push needed</div>
+        <pre><span class="cmt"># 1. Kyriba fetches forecast from K-Phi</span>
+<span class="key">GET</span> https://k-phi.com/api/v1/forecast/kyriba?entity=SUB01&amp;currency=EUR&amp;horizon=12m
+<span class="cmt">Authorization:</span> Bearer &lt;k-phi-token&gt;
+
+<span class="kw">200 OK</span>
+Liquidity plan;participant;budget code;flow amount;currency;due date;description;Status
+2025-05;SUB01;CUSTOMER;370;EUR;15/05/2025;K-Phi Forecast;CF
+2025-05;SUB01;CUST_INT;50;EUR;15/05/2025;K-Phi Forecast;CF
+...
+
+<span class="cmt"># 2. Kyriba imports via its Process Template API</span>
+<span class="kw">POST</span> api.kyriba.com/api/v1/data?fileName=kphi_forecast.txt
+<span class="kw">POST</span> api.kyriba.com/api/v1/process-templates/IMP_LF_VDO/run?fileIds={id}</pre>
+      </div>
+    </div>
+
+    <!-- Inbound API -->
+    <div class="f-card reveal" style="margin-bottom:24px">
+      <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:4px">▼ Inbound — GL Import API</div>
+      <div style="font-size:12px;color:var(--txt3);margin-bottom:16px">Your ERP pushes GL trial balance into K-Φ via API, SFTP, or connector</div>
+      <table class="api-table">
+        <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import</code></td><td>Import GL entries (JSON)</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/csv</code></td><td>Import GL from CSV/TSV</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/sap</code></td><td>SAP trial balance (FAGLL03)</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/oracle</code></td><td>Oracle GL export</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/netsuite</code></td><td>NetSuite trial balance</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/xero</code></td><td>Xero journal export</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/qb</code></td><td>QuickBooks trial balance</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/sage</code></td><td>Sage Intacct GL</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/d365</code></td><td>Microsoft Dynamics 365</td><td><span class="api-badge planned">PLANNED</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/gl</code></td><td>Retrieve GL entries</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method del">DELETE</span></td><td><code>/v1/gl/version/:name</code></td><td>Delete a version</td><td><span class="api-badge live">LIVE</span></td></tr>
+        </tbody>
+      </table>
+
+      <!-- SAP example -->
+      <div class="api-example" style="border-color:rgba(97,175,239,0.15)">
+        <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:10px">📋 SAP Integration — Push trial balance after period close</div>
+        <pre><span class="kw">POST</span> https://k-phi.com/api/v1/gl/import
+<span class="cmt">Content-Type:</span> application/json
+
+{
+  <span class="str">"version"</span>: <span class="kw">"SAP-2025-Q1"</span>,
+  <span class="str">"entity"</span>: <span class="kw">"1000"</span>,
+  <span class="str">"entries"</span>: [
+    { <span class="str">"acct"</span>: <span class="kw">"100000"</span>, <span class="str">"desc"</span>: <span class="kw">"Cash"</span>, <span class="str">"amt"</span>: <span class="key">2450000</span>, <span class="str">"period"</span>: <span class="kw">"2025-03"</span> },
+    { <span class="str">"acct"</span>: <span class="kw">"140000"</span>, <span class="str">"desc"</span>: <span class="kw">"AR"</span>, <span class="str">"amt"</span>: <span class="key">8750000</span>, <span class="str">"period"</span>: <span class="kw">"2025-03"</span> }
+  ]
+}
+
+<span class="kw">201 Created</span> { <span class="str">"imported"</span>: <span class="key">847</span>, <span class="str">"version"</span>: <span class="kw">"SAP-2025-Q1"</span> }</pre>
+      </div>
+    </div>
+
+    <!-- Connectors grid -->
+    <div class="reveal" style="margin-top:48px">
+      <div style="font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px">Connectors</div>
+      <div style="font-size:12px;color:var(--txt3);margin-bottom:4px">Bidirectional, inbound, and outbound integrations</div>
+      <div class="connectors-grid">
+        <div class="connector live"><div class="c-icon">⚡</div><div class="c-name">Kyriba</div><div class="c-dir">bidirectional</div><div class="c-status" style="color:var(--gold)">● LIVE</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">SAP S/4HANA</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">Oracle EBS</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">NetSuite</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">Xero</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">QuickBooks</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">Sage Intacct</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">MS Dynamics</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">🏦</div><div class="c-name">PSD2 Banks</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">📂</div><div class="c-name">SFTP Drop</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">🔔</div><div class="c-name">Webhooks</div><div class="c-dir">outbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+        <div class="connector planned"><div class="c-icon">💬</div><div class="c-name">Slack Alerts</div><div class="c-dir">outbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
+      </div>
     </div>
   </div>
 </section>
