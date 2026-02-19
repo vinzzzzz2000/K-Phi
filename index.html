@@ -22,9 +22,7 @@ body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;opaci
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
   background-image:linear-gradient(rgba(230,255,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(230,255,0,0.03) 1px,transparent 1px);background-size:80px 80px}
-
-nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(6,6,15,0.7);border-bottom:1px solid rgba(230,255,0,0.06);transition:all 0.4s}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(6,6,15,0.7);border-bottom:1px solid rgba(230,255,0,0.06);transition:all 0.4s}
 nav.scrolled{padding:12px 48px;background:rgba(6,6,15,0.92)}
 .nav-logo{font-family:var(--serif);font-size:28px;color:var(--gold);letter-spacing:2px;text-decoration:none}
 .nav-links{display:flex;gap:32px;align-items:center}
@@ -32,10 +30,8 @@ nav.scrolled{padding:12px 48px;background:rgba(6,6,15,0.92)}
 .nav-links a:hover{color:var(--gold)}
 .nav-cta{padding:10px 28px;background:var(--gold);color:var(--bg);font-weight:700;font-size:13px;letter-spacing:1px;border-radius:6px;text-decoration:none;transition:all 0.3s;text-transform:uppercase}
 .nav-cta:hover{background:#fff;transform:translateY(-1px);box-shadow:0 8px 32px rgba(230,255,0,0.2)}
-
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:140px 48px 80px;text-align:center;overflow:hidden}
-.hero-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;
-  background:radial-gradient(circle,rgba(230,255,0,0.06) 0%,rgba(176,102,255,0.03) 40%,transparent 70%);pointer-events:none}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(230,255,0,0.06) 0%,rgba(176,102,255,0.03) 40%,transparent 70%);pointer-events:none}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:100px;border:1px solid rgba(230,255,0,0.15);background:rgba(230,255,0,0.04);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:32px;animation:fadeUp .8s ease both}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
@@ -46,20 +42,17 @@ h1 span::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height
 .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .45s ease both}
 .btn-primary{padding:16px 40px;background:var(--gold);color:var(--bg);font-weight:700;font-size:14px;letter-spacing:1px;border-radius:8px;text-decoration:none;transition:all 0.3s;text-transform:uppercase;border:2px solid var(--gold)}
 .btn-primary:hover{background:transparent;color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 40px rgba(230,255,0,0.15)}
-.btn-ghost{padding:16px 40px;background:transparent;color:var(--gold);font-weight:600;font-size:14px;letter-spacing:0.5px;border-radius:8px;text-decoration:none;transition:all 0.3s;border:1px solid rgba(230,255,0,0.35);position:relative;overflow:hidden}
+.btn-ghost{padding:16px 40px;background:transparent;color:var(--gold);font-weight:600;font-size:14px;letter-spacing:0.5px;border-radius:8px;text-decoration:none;transition:all 0.3s;border:1px solid rgba(230,255,0,0.35)}
 .btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(230,255,0,0.1)}
 .hero-stats{display:flex;gap:64px;justify-content:center;margin-top:80px;animation:fadeUp .8s .6s ease both}
-.stat{text-align:center}
-.stat-num{font-family:var(--mono);font-size:42px;font-weight:600;color:var(--gold);line-height:1}
+.stat{text-align:center}.stat-num{font-family:var(--mono);font-size:42px;font-weight:600;color:var(--gold);line-height:1}
 .stat-label{font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:1.5px;margin-top:8px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
 section{position:relative;z-index:1;padding:120px 48px}
 .section-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
 .section-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);margin-bottom:20px;line-height:1.2}
 .section-sub{font-size:17px;color:var(--txt2);max-width:600px;line-height:1.7;margin-bottom:56px}
 .container{max-width:1200px;margin:0 auto}
-
 .workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:start;position:relative;margin-bottom:32px}
 .wf-step{text-align:center;position:relative;padding:0 12px}
 .wf-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px;transition:all 0.4s}
@@ -73,7 +66,6 @@ section{position:relative;z-index:1;padding:120px 48px}
 .wf-desc{font-size:12px;color:var(--txt3);line-height:1.5}
 .wf-arrow{position:absolute;right:-12px;top:32px;color:var(--gold);font-size:18px;opacity:0.4}
 .wf-step:last-child .wf-arrow{display:none}
-
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px;margin-top:56px}
 .f-card{background:var(--bg2);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:36px;transition:all 0.4s;position:relative;overflow:hidden}
 .f-card:hover{border-color:rgba(230,255,0,0.15);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
@@ -85,7 +77,25 @@ section{position:relative;z-index:1;padding:120px 48px}
 .f-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:0.5px;margin-top:14px;text-transform:uppercase}
 .f-tag.live{background:rgba(54,214,160,0.12);color:var(--teal);border:1px solid rgba(54,214,160,0.2)}
 .f-tag.new{background:rgba(176,102,255,0.12);color:var(--purple);border:1px solid rgba(176,102,255,0.25)}
-
+.sim-showcase{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.sim-levers{display:flex;flex-direction:column;gap:10px}
+.sim-lever{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:var(--bg2);border:1px solid rgba(255,255,255,0.04);transition:all 0.3s}
+.sim-lever:hover{border-color:rgba(230,255,0,0.15);transform:translateX(4px)}
+.sim-lever-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sim-lever-name{font-weight:700;font-size:13px}
+.sim-lever-desc{font-size:11px;color:var(--txt3);line-height:1.4}
+.sim-lever-tags{display:flex;gap:6px;margin-top:4px}
+.sim-lever-tag{font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:0.3px}
+.sim-lever-tag.pl{background:rgba(255,230,0,0.08);color:#FFE600}
+.sim-lever-tag.cash{background:rgba(230,255,0,0.08);color:#E6FF00}
+.sim-lever-tag.both{background:rgba(230,0,126,0.08);color:#E6007E}
+.sim-impact{background:var(--bg2);border:1px solid rgba(230,0,126,0.15);border-radius:16px;padding:28px;position:sticky;top:120px}
+.sim-impact-title{font-size:11px;font-weight:700;color:var(--pink);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.sim-pill{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.sim-pill:last-child{border-bottom:none}
+.sim-pill-label{font-size:12px;color:var(--txt2)}
+.sim-pill-val{font-family:var(--mono);font-weight:600;font-size:14px}
+.sim-pill-val.pos{color:var(--gold)}.sim-pill-val.neg{color:var(--red)}
 .layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;border-radius:16px;overflow:hidden}
 .layer{padding:32px 24px;text-align:center;transition:all 0.3s;cursor:default}
 .layer:hover{transform:translateY(-4px)}
@@ -93,14 +103,12 @@ section{position:relative;z-index:1;padding:120px 48px}
 .layer-icon{font-size:36px;margin-bottom:12px}
 .layer-name{font-weight:700;font-size:16px;margin-bottom:6px}
 .layer-desc{font-size:12px;line-height:1.6;opacity:0.7}
-
 .security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
 .sec-item{display:flex;gap:14px;padding:20px;border-radius:12px;background:var(--bg2);border:1px solid rgba(255,255,255,0.03);transition:all 0.3s}
 .sec-item:hover{border-color:rgba(54,214,160,0.2);background:rgba(54,214,160,0.02)}
 .sec-check{width:24px;height:24px;border-radius:50%;background:rgba(54,214,160,0.12);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px}
 .sec-name{font-weight:600;font-size:14px;margin-bottom:3px}
 .sec-desc{font-size:12px;color:var(--txt3);line-height:1.5}
-
 .arch-visual{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:48px}
 .arch-col{background:var(--bg2);border:1px solid rgba(255,255,255,0.04);border-radius:16px;padding:28px;min-width:180px;flex:1;max-width:220px}
 .arch-col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -111,8 +119,6 @@ section{position:relative;z-index:1;padding:120px 48px}
 .arch-item.purple{background:rgba(176,102,255,0.08);color:var(--purple)}
 .arch-item:hover{transform:translateX(4px)}
 .arch-arrow{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:24px;opacity:0.3;padding-top:40px}
-
-/* API Section */
 .api-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:32px auto;max-width:800px}
 .api-box{padding:14px 20px;border-radius:10px;text-align:center;min-width:130px}
 .api-box.source{background:rgba(97,175,239,0.06);border:1px solid rgba(97,175,239,0.15)}
@@ -136,24 +142,18 @@ section{position:relative;z-index:1;padding:120px 48px}
 .connector:hover{transform:translateY(-3px)}
 .connector.live{background:rgba(230,0,126,0.05);border:1px solid rgba(230,0,126,0.15)}
 .connector.planned{background:rgba(40,40,70,0.3);border:1px solid rgba(60,60,100,0.2)}
-.connector .c-icon{font-size:22px;margin-bottom:6px}
-.connector .c-name{font-size:12px;font-weight:700;color:var(--txt)}
-.connector .c-dir{font-size:9px;color:var(--txt3);margin-top:2px}
-.connector .c-status{font-size:8px;font-weight:700;margin-top:6px}
-
+.connector .c-icon{font-size:22px;margin-bottom:6px}.connector .c-name{font-size:12px;font-weight:700;color:var(--txt)}
+.connector .c-dir{font-size:9px;color:var(--txt3);margin-top:2px}.connector .c-status{font-size:8px;font-weight:700;margin-top:6px}
 .cta-section{text-align:center;padding:120px 48px;position:relative}
 .cta-section::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(230,255,0,0.2),transparent)}
 .cta-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);margin-bottom:20px}
 .cta-sub{font-size:18px;color:var(--txt2);margin-bottom:40px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.7}
-
 footer{padding:48px;border-top:1px solid rgba(255,255,255,0.04);text-align:center}
 footer .logo{font-family:var(--serif);font-size:24px;color:var(--gold);letter-spacing:2px;margin-bottom:12px}
 footer p{font-size:12px;color:var(--txt3);line-height:1.8}
-
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:0.1s}.reveal-d2{transition-delay:0.2s}.reveal-d3{transition-delay:0.3s}
-
 @media(max-width:768px){
   nav{padding:16px 20px}.nav-links{display:none}
   section{padding:80px 20px}.hero{padding:120px 20px 60px}
@@ -161,22 +161,21 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   .features-grid{grid-template-columns:1fr}.layers-grid{grid-template-columns:repeat(2,1fr)}
   .arch-visual{flex-direction:column}.arch-arrow{transform:rotate(90deg);padding:0}
   .api-flow{flex-direction:column}.api-arrow{transform:rotate(90deg);padding:8px 0}
-  .api-table{font-size:11px}.api-table td,.api-table th{padding:6px 4px}
   .connectors-grid{grid-template-columns:repeat(3,1fr)}
+  .sim-showcase{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 <div class="grid-bg"></div>
-
 <nav id="nav">
   <a href="#" class="nav-logo">K–Φ</a>
   <div class="nav-links">
     <a href="#workflow">How It Works</a>
     <a href="#features">Features</a>
+    <a href="#simulate">Simulate</a>
     <a href="#platform">Platform</a>
     <a href="#security">Security</a>
-    <a href="#architecture">Architecture</a>
     <a href="#api">API</a>
     <a href="#demo" class="nav-cta">Request Demo</a>
     <a href="https://k-phi.com" target="_blank" class="nav-cta" style="background:var(--gold);color:#0a0a1a;margin-left:6px">▶ Live Demo</a>
@@ -187,14 +186,14 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   <div class="hero-glow"></div>
   <div class="hero-badge"><span class="dot"></span> AI-Powered Treasury Intelligence</div>
   <h1>From GL to <span>Cash Forecast</span><br>in one click</h1>
-  <p class="hero-sub">K-Φ transforms raw general ledger data into financial statements, driver-based budgets, and cash flow intelligence — with an embedded AI assistant that lets each tenant customise their own instance in natural language.</p>
+  <p class="hero-sub">K-Φ transforms raw general ledger data into financial statements, auto-derived forecasts, and scenario simulations — so you can model hiring, inflation, FX, and financing decisions before they hit your cash.</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary">Request a Demo</a>
-    <a href="#workflow" class="btn-ghost">See How It Works</a>
+    <a href="#simulate" class="btn-ghost">See Scenario Simulator</a>
   </div>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">1</div><div class="stat-label">GL Extract → Full Financials</div></div>
-    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Platform Layers</div></div>
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Simulation Levers</div></div>
     <div class="stat"><div class="stat-num">AI</div><div class="stat-label">Embedded Assistant</div></div>
     <div class="stat"><div class="stat-num">&lt;2s</div><div class="stat-label">Version Recompute</div></div>
   </div>
@@ -208,7 +207,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="workflow reveal">
       <div class="wf-step"><div class="wf-icon">⚡</div><div class="wf-name">Data Ingestion</div><div class="wf-desc">CSV/TSV import with AI mapping, or direct ERP connector (SAP, Oracle, D365)</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon">📊</div><div class="wf-name">Φ Statements</div><div class="wf-desc">Balance Sheet, P&L, Cash Flow & KPIs — auto-generated from GL with drill-down</div><span class="wf-arrow">→</span></div>
-      <div class="wf-step"><div class="wf-icon">🎯</div><div class="wf-name">Φ Future</div><div class="wf-desc">Driver-based budgets, trend forecasts with seasonal decomposition and scenario analysis</div><span class="wf-arrow">→</span></div>
+      <div class="wf-step"><div class="wf-icon">🔮</div><div class="wf-name">Φ Future</div><div class="wf-desc">Auto-derived forecast from actuals, scenario simulator, and driver-based budgets</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon">🤖</div><div class="wf-name">AI Customisation</div><div class="wf-desc">Embedded Claude assistant — describe changes in plain English, preview and apply instantly</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon" style="font-size:24px">🔄</div><div class="wf-name">Push & Approve</div><div class="wf-desc">Multi-level approval workflow with community marketplace for shared features</div></div>
     </div>
@@ -223,18 +222,53 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="features-grid">
       <div class="f-card reveal"><span class="f-icon">📋</span><div class="f-title">Three-Statement Model</div><div class="f-desc">Automatic Balance Sheet, Income Statement, and Cash Flow Statement derived from GL entries. Indirect method CFS with full drill-down.</div><span class="f-tag live">Live</span></div>
       <div class="f-card reveal reveal-d1"><span class="f-icon">🔀</span><div class="f-title">Multi-Version Analysis</div><div class="f-desc">Compare up to 24 monthly versions side by side. Trend charts, variance analysis, and chronological ordering.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal reveal-d2"><span class="f-icon">🎯</span><div class="f-title">Driver-Based Budgeting</div><div class="f-desc">26 drivers across Revenue, COGS, Personnel, OpEx, Working Capital, and Treasury. Seed from actuals with trend extrapolation.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal"><span class="f-icon">🤖</span><div class="f-title">AI Assistant</div><div class="f-desc">Embedded Claude-powered assistant. Describe UI changes in plain English — changes saved as snapshots, always reversible.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal reveal-d1"><span class="f-icon">🏗️</span><div class="f-title">Per-Tenant Isolation</div><div class="f-desc">Each tenant forks the platform UI into their own version. Customise independently while receiving upstream updates as proposals.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal reveal-d2"><span class="f-icon">📬</span><div class="f-title">Push Proposals</div><div class="f-desc">Platform updates delivered as proposals — tenants review and accept or reject. Auto-diff engine generates patches. No forced upgrades.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal"><span class="f-icon">🏪</span><div class="f-title">Community Marketplace</div><div class="f-desc">Tenants share AI-generated customisations. Browse, install with one click. Curated with moderation and featured highlights.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal reveal-d1"><span class="f-icon">🔐</span><div class="f-title">Push Approval Workflow</div><div class="f-desc">Multi-level approval for all UI changes. Configurable 1 or 2-level: Pusher → L1 → L2. Separation of duties. Off by default.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal reveal-d2"><span class="f-icon">📦</span><div class="f-title">Version Manager</div><div class="f-desc">Milestone snapshots with instant rollback. Platform-level and tenant-level versioning with full history and parent tracking.</div><span class="f-tag new">New</span></div>
+      <div class="f-card reveal reveal-d2" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">⚡</span><div class="f-title">Auto-Derived Forecast</div><div class="f-desc">Pure read-only forecast derived from your actuals. DSO/DPO-driven collection schedules, rolling AR/AP/Cash balances, revenue trend detection — zero configuration.</div><span class="f-tag new">New</span></div>
+      <div class="f-card reveal" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">⚙️</span><div class="f-title">Scenario Simulator</div><div class="f-desc">Stack 9 business levers — staffing, inflation, revenue, AR/AP terms, CapEx, debt, FX, cost cuts — and see cascading impact on both P&L and cash flow in real time.</div><span class="f-tag new">New</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🎯</span><div class="f-title">Driver-Based Budgeting</div><div class="f-desc">26 drivers across Revenue, COGS, Personnel, OpEx, Working Capital, and Treasury. Seed from actuals with trend extrapolation.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d2"><span class="f-icon">🤖</span><div class="f-title">AI Assistant</div><div class="f-desc">Embedded Claude-powered assistant. Describe UI changes in plain English — changes saved as snapshots, always reversible.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal"><span class="f-icon">📈</span><div class="f-title">Cash Conversion Cycle</div><div class="f-desc">DSO, DPO, DIO with industry benchmarks. Waterfall visualisation and working capital analytics with colour-coded health indicators.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🏗️</span><div class="f-title">Per-Tenant Isolation</div><div class="f-desc">Each tenant forks the platform UI into their own version. Customise independently while receiving upstream updates as proposals.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d2"><span class="f-icon">📬</span><div class="f-title">Push Proposals</div><div class="f-desc">Platform updates delivered as proposals — tenants review and accept or reject. Auto-diff engine generates patches. No forced upgrades.</div><span class="f-tag live">Live</span></div>
     </div>
   </div>
 </section>
 
-<section id="platform">
+<section id="simulate">
+  <div class="container">
+    <div class="section-label reveal">Scenario Simulator</div>
+    <div class="section-title reveal">What if we hired 10 people?<br>Renegotiated payment terms?<br><span style="color:var(--gold)">See the impact before you decide.</span></div>
+    <div class="section-sub reveal">Each lever computes monthly deltas on both P&L and Cash Flow vs. your actuals baseline. Stack them, compare scenarios, export to CSV.</div>
+    <div class="sim-showcase reveal">
+      <div class="sim-levers">
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(154,154,184,0.12);border:1px solid rgba(154,154,184,0.25)">☷</div><div><div class="sim-lever-name">Staffing Change</div><div class="sim-lever-desc">Hire or reduce headcount. Salary × count × benefits.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(230,255,0,0.12);border:1px solid rgba(230,255,0,0.25)">▲</div><div><div class="sim-lever-name">Revenue Change</div><div class="sim-lever-desc">Model growth or decline. Cascades through COGS and AR collections, lagged by DSO.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(255,230,0,0.12);border:1px solid rgba(255,230,0,0.25)">↑</div><div><div class="sim-lever-name">Cost Inflation</div><div class="sim-lever-desc">Annual rate on COGS and/or OpEx. Compounds monthly, erodes margins progressively.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(230,255,0,0.12);border:1px solid rgba(230,255,0,0.25)">⏰</div><div><div class="sim-lever-name">AR Terms (DSO ↓)</div><div class="sim-lever-desc">Negotiate faster collections. One-time AR release + ongoing cash acceleration.</div><div class="sim-lever-tags"><span class="sim-lever-tag cash">Cash only</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(230,0,126,0.12);border:1px solid rgba(230,0,126,0.25)">⏰</div><div><div class="sim-lever-name">AP Terms (DPO ↑)</div><div class="sim-lever-desc">Extend payment terms. Defers cash outflow. No P&L impact.</div><div class="sim-lever-tags"><span class="sim-lever-tag cash">Cash only</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(239,100,97,0.12);border:1px solid rgba(239,100,97,0.25)">⚶</div><div><div class="sim-lever-name">Capital Expenditure</div><div class="sim-lever-desc">Upfront cash spend spread over months. P&L via depreciation over useful life.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(154,154,184,0.12);border:1px solid rgba(154,154,184,0.25)">★</div><div><div class="sim-lever-name">Debt / Financing</div><div class="sim-lever-desc">Drawdown or repayment. Amortising schedule with interest expense on P&L.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(255,230,0,0.12);border:1px solid rgba(255,230,0,0.25)">¤</div><div><div class="sim-lever-name">FX Rate Change</div><div class="sim-lever-desc">Currency impact on exposed revenue and costs. Model depreciation or appreciation.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+        <div class="sim-lever"><div class="sim-lever-icon" style="background:rgba(230,255,0,0.12);border:1px solid rgba(230,255,0,0.25)">✂</div><div><div class="sim-lever-name">Cost Optimisation</div><div class="sim-lever-desc">Cut COGS and/or OpEx with implementation cost. Payback period calculated.</div><div class="sim-lever-tags"><span class="sim-lever-tag both">P&L + Cash</span></div></div></div>
+      </div>
+      <div class="sim-impact">
+        <div class="sim-impact-title">━ Example: Expansion Scenario</div>
+        <div style="font-size:12px;color:var(--txt3);margin-bottom:16px;line-height:1.6">Hire 10 engineers + 15% revenue growth + extend DPO to 60 days + €2M CapEx on new equipment</div>
+        <div class="sim-pill"><span class="sim-pill-label">Total P&L Impact (12mo)</span><span class="sim-pill-val pos">+€ 840K</span></div>
+        <div class="sim-pill"><span class="sim-pill-label">Total Cash Impact (12mo)</span><span class="sim-pill-val neg">−€ 620K</span></div>
+        <div class="sim-pill"><span class="sim-pill-label">Monthly P&L avg</span><span class="sim-pill-val pos">+€ 70K</span></div>
+        <div class="sim-pill"><span class="sim-pill-label">Monthly Cash avg</span><span class="sim-pill-val neg">−€ 52K</span></div>
+        <div class="sim-pill"><span class="sim-pill-label">Cash Payback</span><span class="sim-pill-val" style="color:var(--gold)">Month 8</span></div>
+        <div class="sim-pill"><span class="sim-pill-label">P&L Break-even</span><span class="sim-pill-val" style="color:var(--gold)">Month 3</span></div>
+        <div style="margin-top:16px;padding:12px 16px;background:rgba(230,255,0,0.04);border:1px solid rgba(230,255,0,0.12);border-radius:8px">
+          <div style="font-size:10px;color:var(--txt3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px">How it works</div>
+          <div style="font-size:12px;color:var(--txt2);line-height:1.6">Baseline auto-derived from your actuals (DSO, DPO, revenue run rate, COGS ratio). Each lever adds monthly deltas. Impact grid shows per-lever × per-month breakdown. Cumulative chart tracks P&L and Cash trajectories.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="platform" style="background:var(--bg2)">
   <div class="container">
     <div class="section-label reveal">Platform Architecture</div>
     <div class="section-title reveal">Four layers. One platform.</div>
@@ -248,7 +282,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   </div>
 </section>
 
-<section id="security" style="background:var(--bg2)">
+<section id="security">
   <div class="container">
     <div class="section-label reveal">Security & Compliance</div>
     <div class="section-title reveal">Enterprise-grade security.<br>Zero compromise.</div>
@@ -267,7 +301,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   </div>
 </section>
 
-<section id="architecture">
+<section id="architecture" style="background:var(--bg2)">
   <div class="container">
     <div class="section-label reveal">Architecture</div>
     <div class="section-title reveal">GL in, intelligence out.</div>
@@ -275,25 +309,22 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="arch-visual reveal">
       <div class="arch-col"><div class="arch-col-title blue">Φ Data Ingestion</div><div class="arch-item blue">ERP Connector</div><div class="arch-item blue">CSV / TSV Import</div><div class="arch-item blue">AI Field Mapper</div><div class="arch-item blue">Configuration</div></div>
       <div class="arch-arrow">→</div>
-      <div class="arch-col"><div class="arch-col-title pink">Φ Statements</div><div class="arch-item pink">Balance Sheet</div><div class="arch-item pink">P&L Statement</div><div class="arch-item pink">Cash Flow</div><div class="arch-item pink">Financial KPIs</div><div class="arch-item pink">GL Explorer</div></div>
+      <div class="arch-col"><div class="arch-col-title pink">Φ Statements</div><div class="arch-item pink">Balance Sheet</div><div class="arch-item pink">P&L Statement</div><div class="arch-item pink">Cash Flow</div><div class="arch-item pink">Financial KPIs</div><div class="arch-item pink">CCC Analysis</div></div>
       <div class="arch-arrow">→</div>
-      <div class="arch-col"><div class="arch-col-title gold">Φ Future</div><div class="arch-item gold">Driver-Based Budget</div><div class="arch-item gold">Trend Forecasting</div><div class="arch-item gold">Version Report</div><div class="arch-item gold">Scenario Analysis</div></div>
+      <div class="arch-col"><div class="arch-col-title gold">Φ Future</div><div class="arch-item gold">Auto Forecast</div><div class="arch-item gold">Scenario Simulator</div><div class="arch-item gold">Driver-Based Budget</div><div class="arch-item gold">Version Report</div></div>
       <div class="arch-arrow">→</div>
       <div class="arch-col"><div class="arch-col-title purple">Φ Own</div><div class="arch-item purple">AI Assistant</div><div class="arch-item purple">Push Proposals</div><div class="arch-item purple">Marketplace</div><div class="arch-item purple">Version Manager</div></div>
       <div class="arch-arrow">→</div>
-      <div class="arch-col"><div class="arch-col-title green">Φ Export</div><div class="arch-item green">Kyriba API</div><div class="arch-item green">Excel Download</div><div class="arch-item green">Statement PDF</div></div>
+      <div class="arch-col"><div class="arch-col-title green">Φ Export</div><div class="arch-item green">Kyriba API</div><div class="arch-item green">Excel / CSV</div><div class="arch-item green">Statement PDF</div><div class="arch-item green">Simulation CSV</div></div>
     </div>
   </div>
 </section>
 
-<!-- API -->
-<section id="api" style="background:var(--bg2)">
+<section id="api">
   <div class="container">
     <div class="section-label reveal">Open API</div>
     <div class="section-title reveal">Connect anything.<br>Push actuals. Pull forecasts.</div>
     <div class="section-sub reveal">K-Φ sits between your ERP and your TMS. Your ERP pushes actuals in, Kyriba pulls forecasts out — all via REST API.</div>
-
-    <!-- Architecture flow -->
     <div class="api-flow reveal">
       <div>
         <div class="api-box source" style="margin-bottom:8px"><span style="color:var(--blue);font-weight:700;font-size:13px">SAP / Oracle</span></div>
@@ -303,7 +334,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
       <div class="api-arrow in">→</div>
       <div class="api-box center">
         <div style="font-family:var(--serif);font-size:28px;font-weight:900;color:var(--gold)">K–Φ</div>
-        <div style="font-size:10px;color:var(--txt3);margin-top:6px">GL → Statements → KPIs<br>Budgets → Forecast</div>
+        <div style="font-size:10px;color:var(--txt3);margin-top:6px">GL → Statements → KPIs<br>Forecast → Simulate → Budget</div>
       </div>
       <div class="api-arrow out">→</div>
       <div>
@@ -312,34 +343,29 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
         <div class="api-box dest"><span style="color:var(--pink);font-weight:700;font-size:13px">Slack / Email</span></div>
       </div>
     </div>
-
-    <!-- Auth info -->
     <div class="reveal" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:40px 0 48px;font-size:13px">
       <div style="padding:8px 16px;background:rgba(230,255,0,0.04);border:1px solid rgba(230,255,0,0.12);border-radius:8px"><span style="color:var(--gold);font-weight:700">Base URL</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">https://k-phi.com/api/v1</code></div>
       <div style="padding:8px 16px;background:rgba(230,0,126,0.04);border:1px solid rgba(230,0,126,0.12);border-radius:8px"><span style="color:var(--pink);font-weight:700">Auth</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">Bearer &lt;token&gt;</code></div>
       <div style="padding:8px 16px;background:rgba(100,100,255,0.04);border:1px solid rgba(100,100,255,0.12);border-radius:8px"><span style="color:var(--blue);font-weight:700">Format</span>&ensp;<code style="font-family:var(--mono);color:var(--txt2)">JSON</code></div>
     </div>
-
-    <!-- Outbound API -->
     <div class="f-card reveal" style="margin-bottom:24px">
-      <div style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px">▲ Outbound — Forecast API</div>
-      <div style="font-size:12px;color:var(--txt3);margin-bottom:16px">External systems pull forecasts, statements, and KPIs from K-Φ</div>
+      <div style="font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px">▲ Outbound — Forecast & Simulation API</div>
+      <div style="font-size:12px;color:var(--txt3);margin-bottom:16px">External systems pull forecasts, simulations, statements, and KPIs from K-Φ</div>
       <table class="api-table">
         <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th><th>Status</th></tr></thead>
         <tbody>
-          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast</code></td><td>Cash flow forecast (weekly/monthly)</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast</code></td><td>Auto-derived cash flow forecast (monthly)</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast/kyriba</code></td><td>Forecast as IMP_LF_VDO payload</td><td><span class="api-badge live">LIVE</span></td></tr>
-          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/forecast/scenarios</code></td><td>List available scenarios</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/simulate/scenarios</code></td><td>List simulation scenarios</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/simulate/:id/impact</code></td><td>P&L + Cash impact by scenario</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/bs</code></td><td>Balance Sheet</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/pl</code></td><td>P&amp;L Statement</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/statements/cf</code></td><td>Cash Flow Statement</td><td><span class="api-badge live">LIVE</span></td></tr>
-          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/kpi</code></td><td>Financial KPIs &amp; ratios</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/kpi</code></td><td>Financial KPIs, CCC & ratios</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/budget/:id</code></td><td>Budget with driver details</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/webhook/subscribe</code></td><td>Webhook for forecast updates</td><td><span class="api-badge planned">PLANNED</span></td></tr>
         </tbody>
       </table>
-
-      <!-- Kyriba example -->
       <div class="api-example" style="border-color:rgba(230,0,126,0.15)">
         <div style="font-size:12px;font-weight:700;color:var(--pink);margin-bottom:10px">⚡ Kyriba Integration — Kyriba pulls the forecast, no push needed</div>
         <pre><span class="cmt"># 1. Kyriba fetches forecast from K-Phi</span>
@@ -349,7 +375,6 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
 <span class="kw">200 OK</span>
 Liquidity plan;participant;budget code;flow amount;currency;due date;description;Status
 2025-05;SUB01;CUSTOMER;370;EUR;15/05/2025;K-Phi Forecast;CF
-2025-05;SUB01;CUST_INT;50;EUR;15/05/2025;K-Phi Forecast;CF
 ...
 
 <span class="cmt"># 2. Kyriba imports via its Process Template API</span>
@@ -357,8 +382,6 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
 <span class="kw">POST</span> api.kyriba.com/api/v1/process-templates/IMP_LF_VDO/run?fileIds={id}</pre>
       </div>
     </div>
-
-    <!-- Inbound API -->
     <div class="f-card reveal" style="margin-bottom:24px">
       <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:4px">▼ Inbound — GL Import API</div>
       <div style="font-size:12px;color:var(--txt3);margin-bottom:16px">Your ERP pushes GL trial balance into K-Φ via API, SFTP, or connector</div>
@@ -371,15 +394,11 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/oracle</code></td><td>Oracle GL export</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/netsuite</code></td><td>NetSuite trial balance</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/xero</code></td><td>Xero journal export</td><td><span class="api-badge planned">PLANNED</span></td></tr>
-          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/qb</code></td><td>QuickBooks trial balance</td><td><span class="api-badge planned">PLANNED</span></td></tr>
-          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/sage</code></td><td>Sage Intacct GL</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/d365</code></td><td>Microsoft Dynamics 365</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method get">GET</span></td><td><code>/v1/gl</code></td><td>Retrieve GL entries</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method del">DELETE</span></td><td><code>/v1/gl/version/:name</code></td><td>Delete a version</td><td><span class="api-badge live">LIVE</span></td></tr>
         </tbody>
       </table>
-
-      <!-- SAP example -->
       <div class="api-example" style="border-color:rgba(97,175,239,0.15)">
         <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:10px">📋 SAP Integration — Push trial balance after period close</div>
         <pre><span class="kw">POST</span> https://k-phi.com/api/v1/gl/import
@@ -397,8 +416,6 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
 <span class="kw">201 Created</span> { <span class="str">"imported"</span>: <span class="key">847</span>, <span class="str">"version"</span>: <span class="kw">"SAP-2025-Q1"</span> }</pre>
       </div>
     </div>
-
-    <!-- Connectors grid -->
     <div class="reveal" style="margin-top:48px">
       <div style="font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px">Connectors</div>
       <div style="font-size:12px;color:var(--txt3);margin-bottom:4px">Bidirectional, inbound, and outbound integrations</div>
@@ -431,14 +448,10 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
       <input id="demoCompany" type="text" placeholder="Company" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit" />
       <select id="demoERP" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#888;font-size:14px;box-sizing:border-box;font-family:inherit;-webkit-appearance:auto">
         <option value="">Current ERP (optional)</option>
-        <option value="SAP S/4HANA">SAP S/4HANA</option>
-        <option value="SAP ECC">SAP ECC</option>
-        <option value="Oracle">Oracle EBS / Cloud</option>
-        <option value="D365">Microsoft D365</option>
-        <option value="NetSuite">NetSuite</option>
-        <option value="Sage">Sage</option>
-        <option value="Xero/QB">Xero / QuickBooks</option>
-        <option value="Other">Other</option>
+        <option value="SAP S/4HANA">SAP S/4HANA</option><option value="SAP ECC">SAP ECC</option>
+        <option value="Oracle">Oracle EBS / Cloud</option><option value="D365">Microsoft D365</option>
+        <option value="NetSuite">NetSuite</option><option value="Sage">Sage</option>
+        <option value="Xero/QB">Xero / QuickBooks</option><option value="Other">Other</option>
       </select>
       <textarea id="demoMsg" placeholder="What are you looking to achieve? (optional)" style="width:100%;padding:12px 16px;margin-bottom:16px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit;height:80px;resize:vertical"></textarea>
       <div id="demoErr" style="color:#ef6461;font-size:13px;margin-bottom:10px;display:none"></div>
@@ -462,27 +475,21 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
-
 async function submitDemo(){
   var name=document.getElementById('demoName').value.trim();
   var email=document.getElementById('demoEmail').value.trim();
   var company=document.getElementById('demoCompany').value.trim();
   var erp=document.getElementById('demoERP').value;
   var msg=document.getElementById('demoMsg').value.trim();
-  var errEl=document.getElementById('demoErr');
-  var okEl=document.getElementById('demoOk');
-  var btn=document.getElementById('demoBtnSend');
+  var errEl=document.getElementById('demoErr');var okEl=document.getElementById('demoOk');var btn=document.getElementById('demoBtnSend');
   errEl.style.display='none';okEl.style.display='none';
   if(!name||!email){errEl.innerText='Name and email are required';errEl.style.display='block';return;}
   if(email.indexOf('@')<1){errEl.innerText='Please enter a valid work email';errEl.style.display='block';return;}
   btn.disabled=true;btn.innerText='Sending...';
   try{
     var r=await fetch('https://k-phi.com/api/demo-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,company:company,erp:erp,message:msg})});
-    if(r.ok){
-      okEl.innerHTML='Thank you, '+name+'! We\'ll be in touch shortly.';okEl.style.display='block';
-      btn.innerText='Sent ✓';btn.style.background='transparent';btn.style.color='var(--gold)';
-      document.getElementById('demoForm').querySelectorAll('input,textarea,select').forEach(function(el){el.disabled=true;el.style.opacity='0.4';});
-    }else{var d=await r.json();errEl.innerText=d.error||'Something went wrong';errEl.style.display='block';btn.disabled=false;btn.innerText='Request a Demo';}
+    if(r.ok){okEl.innerHTML='Thank you, '+name+'! We\'ll be in touch shortly.';okEl.style.display='block';btn.innerText='Sent ✓';btn.style.background='transparent';btn.style.color='var(--gold)';document.getElementById('demoForm').querySelectorAll('input,textarea,select').forEach(function(el){el.disabled=true;el.style.opacity='0.4';});}
+    else{var d=await r.json();errEl.innerText=d.error||'Something went wrong';errEl.style.display='block';btn.disabled=false;btn.innerText='Request a Demo';}
   }catch(e){errEl.innerText='Network error — please try again';errEl.style.display='block';btn.disabled=false;btn.innerText='Request a Demo';}
 }
 </script>
