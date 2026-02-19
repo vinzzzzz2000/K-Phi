@@ -258,9 +258,29 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="section-label reveal">Get Started</div>
     <div class="cta-title reveal">Ready to transform<br>your treasury?</div>
     <div class="cta-sub reveal">See K-Φ in action with your own data. No commitment, no credit card.</div>
-    <div class="hero-actions reveal">
-      <a href="mailto:contact@k-phi.com" class="btn-primary">Request a Demo</a>
-      <a href="#" class="btn-ghost" onclick="window.open('https://k-phi.com','_blank');return false;">Try the Live Demo</a>
+    <div id="demoForm" class="reveal" style="max-width:440px;margin:32px auto 0;text-align:left">
+      <input id="demoName" type="text" placeholder="Your name *" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit" />
+      <input id="demoEmail" type="email" placeholder="Work email *" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit" />
+      <input id="demoCompany" type="text" placeholder="Company" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit" />
+      <select id="demoERP" style="width:100%;padding:12px 16px;margin-bottom:10px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#888;font-size:14px;box-sizing:border-box;font-family:inherit;-webkit-appearance:auto">
+        <option value="">Current ERP (optional)</option>
+        <option value="SAP S/4HANA">SAP S/4HANA</option>
+        <option value="SAP ECC">SAP ECC</option>
+        <option value="Oracle">Oracle EBS / Cloud</option>
+        <option value="D365">Microsoft D365</option>
+        <option value="NetSuite">NetSuite</option>
+        <option value="Sage">Sage</option>
+        <option value="Xero/QB">Xero / QuickBooks</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea id="demoMsg" placeholder="What are you looking to achieve? (optional)" style="width:100%;padding:12px 16px;margin-bottom:16px;background:rgba(10,10,26,0.6);border:1px solid rgba(100,100,140,0.3);border-radius:8px;color:#eee;font-size:14px;box-sizing:border-box;font-family:inherit;height:80px;resize:vertical"></textarea>
+      <div id="demoErr" style="color:#ef6461;font-size:13px;margin-bottom:10px;display:none"></div>
+      <div id="demoOk" style="color:#E6FF00;font-size:14px;margin-bottom:10px;display:none;text-align:center"></div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <button id="demoBtnSend" onclick="submitDemo()" class="btn-primary" style="cursor:pointer;border:2px solid var(--gold);flex:1;text-align:center">Request a Demo</button>
+        <a href="#" class="btn-ghost" onclick="window.open('https://k-phi.com','_blank');return false;" style="flex:1;text-align:center">Try the Live Demo</a>
+      </div>
+      <div style="font-size:11px;color:#555;text-align:center;margin-top:12px">We'll reach out within 24 hours.</div>
     </div>
   </div>
 </section>
@@ -275,6 +295,29 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+async function submitDemo(){
+  var name=document.getElementById('demoName').value.trim();
+  var email=document.getElementById('demoEmail').value.trim();
+  var company=document.getElementById('demoCompany').value.trim();
+  var erp=document.getElementById('demoERP').value;
+  var msg=document.getElementById('demoMsg').value.trim();
+  var errEl=document.getElementById('demoErr');
+  var okEl=document.getElementById('demoOk');
+  var btn=document.getElementById('demoBtnSend');
+  errEl.style.display='none';okEl.style.display='none';
+  if(!name||!email){errEl.innerText='Name and email are required';errEl.style.display='block';return;}
+  if(email.indexOf('@')<1){errEl.innerText='Please enter a valid work email';errEl.style.display='block';return;}
+  btn.disabled=true;btn.innerText='Sending...';
+  try{
+    var r=await fetch('https://k-phi.com/api/demo-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,company:company,erp:erp,message:msg})});
+    if(r.ok){
+      okEl.innerHTML='Thank you, '+name+'! We\'ll be in touch shortly.';okEl.style.display='block';
+      btn.innerText='Sent ✓';btn.style.background='transparent';btn.style.color='var(--gold)';
+      document.getElementById('demoForm').querySelectorAll('input,textarea,select').forEach(function(el){el.disabled=true;el.style.opacity='0.4';});
+    }else{var d=await r.json();errEl.innerText=d.error||'Something went wrong';errEl.style.display='block';btn.disabled=false;btn.innerText='Request a Demo';}
+  }catch(e){errEl.innerText='Network error — please try again';errEl.style.display='block';btn.disabled=false;btn.innerText='Request a Demo';}
+}
 </script>
 </body>
 </html>
