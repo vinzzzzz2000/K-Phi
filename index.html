@@ -76,7 +76,7 @@ section{position:relative;z-index:1;padding:120px 48px}
 .f-desc{font-size:14px;color:var(--txt2);line-height:1.7}
 .f-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:0.5px;margin-top:14px;text-transform:uppercase}
 .f-tag.live{background:rgba(54,214,160,0.12);color:var(--teal);border:1px solid rgba(54,214,160,0.2)}
-.f-tag.new{background:rgba(176,102,255,0.12);color:var(--purple);border:1px solid rgba(176,102,255,0.25)}
+.f-tag.new{background:rgba(230,0,126,0.12);color:var(--pink);border:1px solid rgba(230,0,126,0.25)}
 .sim-showcase{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
 .sim-levers{display:flex;flex-direction:column;gap:10px}
 .sim-lever{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:var(--bg2);border:1px solid rgba(255,255,255,0.04);transition:all 0.3s}
@@ -186,7 +186,7 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   <div class="hero-glow"></div>
   <div class="hero-badge"><span class="dot"></span> AI-Powered Treasury Intelligence</div>
   <h1>From GL to <span>Cash Forecast</span><br>in one click</h1>
-  <p class="hero-sub">K-Φ transforms raw general ledger data into financial statements, auto-derived forecasts, and scenario simulations — so you can model hiring, inflation, FX, and financing decisions before they hit your cash.</p>
+  <p class="hero-sub">K-Φ transforms raw general ledger data into financial statements, 30+ KPIs, auto-derived forecasts, driver-based budgets, and scenario simulations — so you can model hiring, inflation, FX, and financing decisions before they hit your cash.</p>
   <div class="hero-actions">
     <a href="#demo" class="btn-primary">Request a Demo</a>
     <a href="#simulate" class="btn-ghost">See Scenario Simulator</a>
@@ -194,8 +194,8 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">1</div><div class="stat-label">GL Extract → Full Financials</div></div>
     <div class="stat"><div class="stat-num">9</div><div class="stat-label">Simulation Levers</div></div>
-    <div class="stat"><div class="stat-num">AI</div><div class="stat-label">Embedded Assistant</div></div>
-    <div class="stat"><div class="stat-num">&lt;2s</div><div class="stat-label">Version Recompute</div></div>
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Financial KPIs</div></div>
+    <div class="stat"><div class="stat-num">2FA</div><div class="stat-label">Enterprise Security</div></div>
   </div>
 </section>
 
@@ -205,11 +205,11 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="section-title reveal">Five steps. Fully automated.</div>
     <div class="section-sub reveal">Import your GL once — K-Φ builds everything else. No templates, no mapping, no formulas.</div>
     <div class="workflow reveal">
-      <div class="wf-step"><div class="wf-icon">⚡</div><div class="wf-name">Data Ingestion</div><div class="wf-desc">CSV/TSV import with AI mapping, or direct ERP connector (SAP, Oracle, D365)</div><span class="wf-arrow">→</span></div>
+      <div class="wf-step"><div class="wf-icon">⚡</div><div class="wf-name">Φ Data Ingestion</div><div class="wf-desc">CSV/TSV import with AI mapping, CoA manager, or direct ERP connector (SAP, Oracle, D365, NetSuite)</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon">📊</div><div class="wf-name">Φ Statements</div><div class="wf-desc">Balance Sheet, P&L, Cash Flow & KPIs — auto-generated from GL with drill-down</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon">🔮</div><div class="wf-name">Φ Future</div><div class="wf-desc">Auto-derived forecast from actuals, scenario simulator, and driver-based budgets</div><span class="wf-arrow">→</span></div>
       <div class="wf-step"><div class="wf-icon">🤖</div><div class="wf-name">AI Customisation</div><div class="wf-desc">Embedded Claude assistant — describe changes in plain English, preview and apply instantly</div><span class="wf-arrow">→</span></div>
-      <div class="wf-step"><div class="wf-icon" style="font-size:24px">🔄</div><div class="wf-name">Push & Approve</div><div class="wf-desc">Multi-level approval workflow with community marketplace for shared features</div></div>
+      <div class="wf-step"><div class="wf-icon" style="font-size:24px">🔄</div><div class="wf-name">Φ Export</div><div class="wf-desc">Push to Kyriba, multi-level approval workflow, and community marketplace for shared features</div></div>
     </div>
   </div>
 </section>
@@ -220,15 +220,18 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="section-title reveal">Everything treasury needs.<br>Nothing it doesn't.</div>
     <div class="section-sub reveal">Built by treasury practitioners. Every feature solves a real operational pain point.</div>
     <div class="features-grid">
-      <div class="f-card reveal"><span class="f-icon">📋</span><div class="f-title">Three-Statement Model</div><div class="f-desc">Automatic Balance Sheet, Income Statement, and Cash Flow Statement derived from GL entries. Indirect method CFS with full drill-down.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal reveal-d1"><span class="f-icon">🔀</span><div class="f-title">Multi-Version Analysis</div><div class="f-desc">Compare up to 24 monthly versions side by side. Trend charts, variance analysis, and chronological ordering.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal"><span class="f-icon">📋</span><div class="f-title">Three-Statement Model</div><div class="f-desc">Automatic Balance Sheet, Income Statement, and Cash Flow Statement derived from GL entries. Indirect method CFS with full drill-down to GL level.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🔀</span><div class="f-title">Multi-Version Analysis</div><div class="f-desc">Compare up to 24 monthly versions side by side. Trend charts, variance analysis, and chronological ordering across all statements.</div><span class="f-tag live">Live</span></div>
       <div class="f-card reveal reveal-d2" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">⚡</span><div class="f-title">Auto-Derived Forecast</div><div class="f-desc">Pure read-only forecast derived from your actuals. DSO/DPO-driven collection schedules, rolling AR/AP/Cash balances, revenue trend detection — zero configuration.</div><span class="f-tag new">New</span></div>
       <div class="f-card reveal" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">⚙️</span><div class="f-title">Scenario Simulator</div><div class="f-desc">Stack 9 business levers — staffing, inflation, revenue, AR/AP terms, CapEx, debt, FX, cost cuts — and see cascading impact on both P&L and cash flow in real time.</div><span class="f-tag new">New</span></div>
-      <div class="f-card reveal reveal-d1"><span class="f-icon">🎯</span><div class="f-title">Driver-Based Budgeting</div><div class="f-desc">26 drivers across Revenue, COGS, Personnel, OpEx, Working Capital, and Treasury. Seed from actuals with trend extrapolation.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal reveal-d2"><span class="f-icon">🤖</span><div class="f-title">AI Assistant</div><div class="f-desc">Embedded Claude-powered assistant. Describe UI changes in plain English — changes saved as snapshots, always reversible.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal"><span class="f-icon">📈</span><div class="f-title">Cash Conversion Cycle</div><div class="f-desc">DSO, DPO, DIO with industry benchmarks. Waterfall visualisation and working capital analytics with colour-coded health indicators.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal reveal-d1"><span class="f-icon">🏗️</span><div class="f-title">Per-Tenant Isolation</div><div class="f-desc">Each tenant forks the platform UI into their own version. Customise independently while receiving upstream updates as proposals.</div><span class="f-tag live">Live</span></div>
-      <div class="f-card reveal reveal-d2"><span class="f-icon">📬</span><div class="f-title">Push Proposals</div><div class="f-desc">Platform updates delivered as proposals — tenants review and accept or reject. Auto-diff engine generates patches. No forced upgrades.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🎯</span><div class="f-title">Driver-Based Budgeting</div><div class="f-desc">26 drivers across Revenue, COGS, Personnel, OpEx, Working Capital, and Treasury. 4-stage approval workflow (Draft → Submitted → In Review → Approved) with role-based permissions.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d2" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">Δ</span><div class="f-title">Version Variance Report</div><div class="f-desc">Compare any two versions or budget scenarios with full delta analysis. Highlights deviations across P&L lines, balance sheet items, and cash flow categories.</div><span class="f-tag new">New</span></div>
+      <div class="f-card reveal" style="border-color:rgba(230,0,126,0.2)"><span class="f-icon">🗂️</span><div class="f-title">Chart of Accounts Manager</div><div class="f-desc">Upload CoA via CSV with smart column detection. Auto-maps ERP account types from SAP, Oracle, D365, and NetSuite naming conventions. Append or replace modes.</div><span class="f-tag new">New</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🤖</span><div class="f-title">AI Assistant</div><div class="f-desc">Embedded Claude-powered assistant. Describe UI changes in plain English — changes saved as snapshots, always reversible.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d2"><span class="f-icon">📈</span><div class="f-title">Cash Conversion Cycle</div><div class="f-desc">DSO, DPO, DIO with threshold-based colour coding (green/yellow/red). Waterfall visualisation and working capital analytics.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal"><span class="f-icon">📊</span><div class="f-title">Financial KPI Dashboard</div><div class="f-desc">30+ ratios across Profitability, Liquidity, Leverage, Efficiency, and Coverage. Multi-entity/BU scope picker with instant recompute.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d1"><span class="f-icon">🔍</span><div class="f-title">GL Explorer</div><div class="f-desc">Full general ledger drill-down with version filtering, account search, and entity/BU scope. The single source of truth behind every number.</div><span class="f-tag live">Live</span></div>
+      <div class="f-card reveal reveal-d2"><span class="f-icon">🏗️</span><div class="f-title">Per-Tenant Isolation</div><div class="f-desc">Each tenant forks the platform UI into their own version. Customise independently while receiving upstream updates as proposals.</div><span class="f-tag live">Live</span></div>
     </div>
   </div>
 </section>
@@ -288,15 +291,16 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="section-title reveal">Enterprise-grade security.<br>Zero compromise.</div>
     <div class="section-sub reveal">Financial data demands the highest standards. Security-first architecture from day one.</div>
     <div class="security-grid">
-      <div class="sec-item reveal"><div class="sec-check">✓</div><div><div class="sec-name">Multi-Tenant Isolation</div><div class="sec-desc">Encrypted SQLite databases per tenant. No cross-tenant data leakage possible.</div></div></div>
-      <div class="sec-item reveal reveal-d1"><div class="sec-check">✓</div><div><div class="sec-name">Two-Factor Authentication</div><div class="sec-desc">TOTP-based 2FA with configurable enforcement, grace periods, and backup codes.</div></div></div>
-      <div class="sec-item reveal reveal-d2"><div class="sec-check">✓</div><div><div class="sec-name">Role-Based Access Control</div><div class="sec-desc">Owner, Admin, Editor, Viewer roles with entity and BU-level data permissions.</div></div></div>
-      <div class="sec-item reveal"><div class="sec-check">✓</div><div><div class="sec-name">Push Approval Workflow</div><div class="sec-desc">Multi-level approval with separation of duties. Pusher, L1 and L2 approver rights.</div></div></div>
-      <div class="sec-item reveal reveal-d1"><div class="sec-check">✓</div><div><div class="sec-name">Full Audit Trail</div><div class="sec-desc">Every action logged with user attribution — logins, imports, config changes, snapshots.</div></div></div>
-      <div class="sec-item reveal reveal-d2"><div class="sec-check">✓</div><div><div class="sec-name">Instant Rollback</div><div class="sec-desc">Every UI change creates an immutable snapshot. One-click rollback, no redeployment.</div></div></div>
-      <div class="sec-item reveal"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: SOC 2 & ISO 27001</div><div class="sec-desc">Independent audit of security, availability, and confidentiality controls.</div></div></div>
-      <div class="sec-item reveal reveal-d1"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: SSO (SAML 2.0)</div><div class="sec-desc">Enterprise identity providers. Passwordless access via OpenID Connect.</div></div></div>
-      <div class="sec-item reveal reveal-d2"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: GDPR & Data Residency</div><div class="sec-desc">EU compliance with right to erasure, breach notification, EU/US hosting.</div></div></div>
+      <div class="sec-item reveal"><div class="sec-check">✓</div><div><div class="sec-name">Multi-Tenant Isolation</div><div class="sec-desc">Encrypted SQLite databases per tenant with persistent storage. No cross-tenant data leakage possible.</div></div></div>
+      <div class="sec-item reveal reveal-d1"><div class="sec-check">✓</div><div><div class="sec-name">Two-Factor Authentication</div><div class="sec-desc">TOTP-based 2FA (RFC 6238) with QR setup, recovery codes, and mandatory enforcement by role with configurable grace periods.</div></div></div>
+      <div class="sec-item reveal reveal-d2"><div class="sec-check">✓</div><div><div class="sec-name">Role-Based Access Control</div><div class="sec-desc">Owner → Admin → Editor → Viewer hierarchy with entity and BU-level data permissions. Only owners can create admins.</div></div></div>
+      <div class="sec-item reveal"><div class="sec-check">✓</div><div><div class="sec-name">Email Invitations</div><div class="sec-desc">Branded email templates for user onboarding. Role-specific invitations with secure activation links.</div></div></div>
+      <div class="sec-item reveal reveal-d1"><div class="sec-check">✓</div><div><div class="sec-name">Budget Approval Workflow</div><div class="sec-desc">4-stage workflow: Draft → Submitted → In Review → Approved. Separation of duties with role-based approval rights.</div></div></div>
+      <div class="sec-item reveal reveal-d2"><div class="sec-check">✓</div><div><div class="sec-name">Full Audit Trail</div><div class="sec-desc">Every action logged with user attribution — logins, imports, config changes, snapshots, 2FA events.</div></div></div>
+      <div class="sec-item reveal"><div class="sec-check">✓</div><div><div class="sec-name">Instant Rollback</div><div class="sec-desc">Every UI change creates an immutable snapshot. One-click rollback, no redeployment.</div></div></div>
+      <div class="sec-item reveal reveal-d1"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: SOC 2 & ISO 27001</div><div class="sec-desc">Independent audit of security, availability, and confidentiality controls.</div></div></div>
+      <div class="sec-item reveal reveal-d2"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: SSO (SAML 2.0)</div><div class="sec-desc">Enterprise identity providers. Passwordless access via OpenID Connect.</div></div></div>
+      <div class="sec-item reveal"><div class="sec-check" style="background:rgba(230,255,0,0.1);color:var(--gold)">★</div><div><div class="sec-name" style="color:var(--gold)">Roadmap: GDPR & Data Residency</div><div class="sec-desc">EU compliance with right to erasure, breach notification, EU/US hosting.</div></div></div>
     </div>
   </div>
 </section>
@@ -307,11 +311,11 @@ footer p{font-size:12px;color:var(--txt3);line-height:1.8}
     <div class="section-title reveal">GL in, intelligence out.</div>
     <div class="section-sub reveal">Five pillars, one integrated platform.</div>
     <div class="arch-visual reveal">
-      <div class="arch-col"><div class="arch-col-title blue">Φ Data Ingestion</div><div class="arch-item blue">ERP Connector</div><div class="arch-item blue">CSV / TSV Import</div><div class="arch-item blue">AI Field Mapper</div><div class="arch-item blue">Configuration</div></div>
+      <div class="arch-col"><div class="arch-col-title blue">Φ Data Ingestion</div><div class="arch-item blue">ERP Connector</div><div class="arch-item blue">CSV / TSV Import</div><div class="arch-item blue">AI Field Mapper</div><div class="arch-item blue">CoA Manager</div><div class="arch-item blue">Configuration</div></div>
       <div class="arch-arrow">→</div>
-      <div class="arch-col"><div class="arch-col-title pink">Φ Statements</div><div class="arch-item pink">Balance Sheet</div><div class="arch-item pink">P&L Statement</div><div class="arch-item pink">Cash Flow</div><div class="arch-item pink">Financial KPIs</div><div class="arch-item pink">CCC Analysis</div></div>
+      <div class="arch-col"><div class="arch-col-title pink">Φ Statements</div><div class="arch-item pink">Balance Sheet</div><div class="arch-item pink">P&L Statement</div><div class="arch-item pink">Cash Flow</div><div class="arch-item pink">Financial KPIs</div><div class="arch-item pink">GL Explorer</div><div class="arch-item pink">Dashboard</div></div>
       <div class="arch-arrow">→</div>
-      <div class="arch-col"><div class="arch-col-title gold">Φ Future</div><div class="arch-item gold">Auto Forecast</div><div class="arch-item gold">Scenario Simulator</div><div class="arch-item gold">Driver-Based Budget</div><div class="arch-item gold">Version Report</div></div>
+      <div class="arch-col"><div class="arch-col-title gold">Φ Future</div><div class="arch-item gold">Auto Forecast</div><div class="arch-item gold">Scenario Simulator</div><div class="arch-item gold">Driver-Based Budget</div><div class="arch-item gold">Version Variance</div></div>
       <div class="arch-arrow">→</div>
       <div class="arch-col"><div class="arch-col-title purple">Φ Own</div><div class="arch-item purple">AI Assistant</div><div class="arch-item purple">Push Proposals</div><div class="arch-item purple">Marketplace</div><div class="arch-item purple">Version Manager</div></div>
       <div class="arch-arrow">→</div>
@@ -390,6 +394,9 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
         <tbody>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import</code></td><td>Import GL entries (JSON)</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/csv</code></td><td>Import GL from CSV/TSV</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method post">POST</span></td><td><code>/v1/coa/import</code></td><td>Upload Chart of Accounts (CSV)</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/coa</code></td><td>Retrieve CoA with ERP type mapping</td><td><span class="api-badge live">LIVE</span></td></tr>
+          <tr><td><span class="api-method get">GET</span></td><td><code>/v1/variance/:v1/:v2</code></td><td>Version variance report (delta analysis)</td><td><span class="api-badge live">LIVE</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/sap</code></td><td>SAP trial balance (FAGLL03)</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/oracle</code></td><td>Oracle GL export</td><td><span class="api-badge planned">PLANNED</span></td></tr>
           <tr><td><span class="api-method post">POST</span></td><td><code>/v1/gl/import/netsuite</code></td><td>NetSuite trial balance</td><td><span class="api-badge planned">PLANNED</span></td></tr>
@@ -421,6 +428,8 @@ Liquidity plan;participant;budget code;flow amount;currency;due date;description
       <div style="font-size:12px;color:var(--txt3);margin-bottom:4px">Bidirectional, inbound, and outbound integrations</div>
       <div class="connectors-grid">
         <div class="connector live"><div class="c-icon">⚡</div><div class="c-name">Kyriba</div><div class="c-dir">bidirectional</div><div class="c-status" style="color:var(--gold)">● LIVE</div></div>
+        <div class="connector live"><div class="c-icon">📄</div><div class="c-name">CSV / TSV</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--gold)">● LIVE</div></div>
+        <div class="connector live"><div class="c-icon">🗂️</div><div class="c-name">CoA Upload</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--gold)">● LIVE</div></div>
         <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">SAP S/4HANA</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
         <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">Oracle EBS</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
         <div class="connector planned"><div class="c-icon">◼</div><div class="c-name">NetSuite</div><div class="c-dir">inbound</div><div class="c-status" style="color:var(--txt3)">PLANNED</div></div>
